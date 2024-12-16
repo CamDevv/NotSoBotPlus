@@ -11,7 +11,7 @@ class Commands(Cog):
 		self.cursor = bot.mysql.cursor
 		self.escape = bot.escape
 
-	@commands.group(pass_context=True, aliases=['setprefix', 'changeprefix'], invoke_without_command=True, no_pm=True)
+	@commands.group(pass_context=True, aliases=['setprefix', 'changeprefix', 'prefix'], invoke_without_command=True, no_pm=True)
 	@checks.admin_or_perm(manage_server=True)
 	async def prefix(self, ctx, *, txt:str=None):
 		"""Change the Bots Prefix for the Server"""
@@ -266,7 +266,7 @@ class Commands(Cog):
 		else:
 			await self.bot.say(':no_entry: `Command does not exist.`')
 
-	@command.command(name='toggle', aliases=['enable', 'disable'], pass_context=True, invoke_without_command=True, no_pm=True)
+	@command.command(name='toggle', aliases=['enable', 'disable', 'on', 'off'], pass_context=True, invoke_without_command=True, no_pm=True)
 	@checks.admin_or_perm(manage_server=True)
 	async def cmd_toggle(self, ctx, cmd:str):
 		"""Server wide Command Toggle"""
